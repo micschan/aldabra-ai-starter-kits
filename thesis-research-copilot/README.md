@@ -1,0 +1,39 @@
+# Thesis Research Copilot
+
+Advanced starter project for a capstone-ready research assistant using Next.js, Postgres, and Aldabra AI Gateway.
+
+## What you build
+
+A research endpoint that:
+
+- accepts a research question
+- asks a stronger model for structured guidance
+- stores the question and answer in Postgres
+- gives you a base for request history and cost-aware workflows
+
+## Run locally
+
+```bash
+npm install
+cp .env.example .env
+psql "$DATABASE_URL" -f schema.sql
+npm run dev
+```
+
+Open:
+
+```text
+http://localhost:3000
+```
+
+## Demo video placeholder
+
+Add your 30-second Loom or YouTube embed here.
+
+## Test the API route
+
+```bash
+curl -X POST http://localhost:3000/api/research \
+  -H "Content-Type: application/json" \
+  -d "{\"question\":\"What are possible thesis topics about AI in local government?\"}"
+```
