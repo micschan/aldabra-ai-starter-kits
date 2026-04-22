@@ -15,28 +15,28 @@ const client = new OpenAI({
   apiKey: process.env.ALDABRA_API_KEY
 });
 
-app.post("/api/study-guide", async (req, res) => {
+app.post("/api/action-tracker", async (req, res) => {
   try {
     const notes = String(req.body.notes ?? "").trim();
 
     if (notes.length < 20) {
-      res.status(400).json({ error: "Paste longer class notes before generating a guide." });
+      res.status(400).json({ error: "Paste longer meeting notes before generating a tracker." });
       return;
     }
 
     const response = await client.chat.completions.create({
-      // premium-chat is better for structured summarization than the cheapest route.
-      model: "premium-chat",
+      // Qwen 2.5 72B is a low-cost OpenRouter model that is strong for structured operational outputs.
+      model: "qwen/qwen-2.5-72b-instruct",
       messages: [
         {
           role: "system",
           // Asking for JSON makes the frontend easier to render consistently.
           content:
-            "Return valid JSON with keys: summary, flashcards, quiz. flashcards and quiz should be arrays."
+            "Return valid JSON with keys: summary, decisions, actionItems, risks, followUps. Arrays should be arrays."
         },
         {
           role: "user",
-          // The student's notes are the source material. Keep this under your project context limit.
+          // The meeting notes are the source material. Keep this under your project context limit.
           content: notes
         }
       ]
@@ -48,10 +48,10 @@ app.post("/api/study-guide", async (req, res) => {
     res.json({ raw: content });
   } catch (error) {
     console.error(error);
-    res.status(500).json({ error: "Unable to generate study guide." });
+    res.status(500).json({ error: "Unable to generate action tracker." });
   }
 });
 
 app.listen(port, () => {
-  console.log(`Study coach API running on http://localhost:${port}`);
+  console.log(`Action tracker API running on http://localhost:${port}`);
 });

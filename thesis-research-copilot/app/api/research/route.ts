@@ -13,9 +13,9 @@ export async function POST(request: Request) {
     );
   }
 
-  const model = "claude-sonnet";
+  const model = "deepseek/deepseek-r1-distill-qwen-32b";
   const response = await aldabra.chat.completions.create({
-    // Claude Sonnet is useful for longer, structured writing and research planning.
+    // R1 Distill Qwen 32B is a lower-cost OpenRouter reasoning model for research planning.
     model,
 
     // Low temperature keeps the answer focused and easier to compare across revisions.
@@ -26,11 +26,11 @@ export async function POST(request: Request) {
         role: "system",
         // The system message defines the quality bar for the assistant.
         content:
-          "Act as a careful thesis research assistant. Provide outlines, source-comparison guidance, and next steps."
+          "Act as a careful business research assistant. Provide briefs, source-comparison guidance, and next steps."
       },
       {
         role: "user",
-        // The student's question becomes the user prompt sent through Aldabra.
+        // The analyst's question becomes the user prompt sent through Aldabra.
         content: question
       }
     ]

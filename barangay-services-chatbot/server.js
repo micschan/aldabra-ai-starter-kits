@@ -26,8 +26,8 @@ app.post("/api/chat", async (req, res) => {
     }
 
     const response = await client.chat.completions.create({
-      // fast-chat is a low-cost model that is good for first projects and simple Q&A.
-      model: "fast-chat",
+      // DeepSeek Chat V3 is a low-cost OpenRouter model that works well for simple Q&A.
+      model: "deepseek/deepseek-chat-v3-0324",
       messages: [
         // The system message keeps the assistant focused on the local-service use case.
         {

@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Customer Support Widget</title>
+    <style>
+      body { margin: 0; min-height: 100vh; display: grid; place-items: center; background: #0d1117; color: #e5edf8; font-family: system-ui, sans-serif; }
+      main { width: min(680px, calc(100vw - 32px)); padding: 28px; border: 1px solid #30363d; border-radius: 24px; background: #161b22; }
+      textarea { width: 100%; min-height: 110px; padding: 14px; color: inherit; background: #0d1117; border: 1px solid #30363d; border-radius: 14px; font: inherit; }
+      button { width: 100%; margin-top: 12px; padding: 12px; color: white; background: #0070f3; border: 0; border-radius: 999px; font: inherit; cursor: pointer; }
+      #answer { margin-top: 18px; line-height: 1.6; white-space: pre-wrap; }
+    </style>
+  </head>
+  <body>
+    <main>
+      <p>Beginner Starter Kit</p>
+      <h1>Customer Support Widget</h1>
+      <textarea id="question">Where is my order and how can I change my delivery address?</textarea>
+      <button id="ask">Ask support assistant</button>
+      <div id="answer"></div>
+    </main>
+    <script>
+      document.querySelector("#ask").addEventListener("click", async () => {
+        const answer = document.querySelector("#answer");
+        answer.textContent = "Checking...";
+        const response = await fetch("/api/support", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ question: document.querySelector("#question").value })
+        });
+        const data = await response.json();
+        answer.textContent = data.answer ?? data.error ?? "No response.";
+      });
+    </script>
+  </body>
+</html>

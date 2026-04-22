@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Multi-Model Router Demo</title>
+    <style>
+      body { margin: 0; min-height: 100vh; display: grid; place-items: center; background: #0d1117; color: #e5edf8; font-family: system-ui, sans-serif; }
+      main { width: min(820px, calc(100vw - 32px)); padding: 28px; border: 1px solid #30363d; border-radius: 24px; background: #161b22; }
+      select, textarea, button { width: 100%; margin-top: 12px; padding: 12px; border-radius: 14px; font: inherit; }
+      select, textarea { color: inherit; background: #0d1117; border: 1px solid #30363d; }
+      textarea { min-height: 110px; }
+      button { color: white; background: #0070f3; border: 0; cursor: pointer; }
+      pre { margin-top: 18px; padding: 16px; border-radius: 14px; background: #050914; color: #bfdbfe; white-space: pre-wrap; }
+    </style>
+  </head>
+  <body>
+    <main>
+      <p>Advanced Starter Kit</p>
+      <h1>Multi-Model Router Demo</h1>
+      <select id="model">
+        <option>deepseek/deepseek-chat-v3-0324</option>
+        <option>qwen/qwen-2.5-72b-instruct</option>
+        <option>google/gemini-2.5-flash-lite</option>
+        <option>deepseek/deepseek-r1-distill-qwen-32b</option>
+      </select>
+      <textarea id="prompt">Explain why using one AI gateway is useful for startups.</textarea>
+      <button id="run">Run selected model</button>
+      <pre id="output"></pre>
+    </main>
+    <script>
+      document.querySelector("#run").addEventListener("click", async () => {
+        const output = document.querySelector("#output");
+        output.textContent = "Running...";
+        const response = await fetch("/api/compare", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            model: document.querySelector("#model").value,
+            prompt: document.querySelector("#prompt").value
+          })
+        });
+        const data = await response.json();
+        output.textContent = JSON.stringify(data, null, 2);
+      });
+    </script>
+  </body>
+</html>

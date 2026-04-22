@@ -10,7 +10,7 @@ function App() {
 
     output.textContent = "Generating study guide...";
 
-    const response = await fetch("/api/study-guide", {
+    const response = await fetch("/api/action-tracker", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ notes })
@@ -24,18 +24,18 @@ function App() {
     <main>
       <section className="panel">
         <p className="eyebrow">Intermediate Starter Kit</p>
-        <h1>Class Notes Study Coach</h1>
+        <h1>Meeting Notes Action Tracker</h1>
         <p>
-          Paste lecture notes and generate summaries, flashcards, and quiz questions
+          Paste meeting notes and generate summaries, decisions, risks, and action items
           through one Aldabra AI Gateway request.
         </p>
 
         <form onSubmit={handleSubmit}>
           <textarea
             name="notes"
-            defaultValue="Photosynthesis converts light energy into chemical energy. Chlorophyll absorbs sunlight, and plants use carbon dioxide and water to produce glucose and oxygen."
+            defaultValue="We agreed to launch the beta next Friday. Ana owns QA, Marco owns payment testing, and the team is concerned about onboarding emails."
           />
-          <button type="submit">Generate study guide</button>
+          <button type="submit">Generate action tracker</button>
         </form>
 
         <pre id="output" />

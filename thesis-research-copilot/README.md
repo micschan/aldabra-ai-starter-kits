@@ -1,12 +1,12 @@
-# Thesis Research Copilot
+# Research Brief Generator
 
-Advanced starter project for a capstone-ready research assistant using Next.js, Postgres, and Aldabra AI Gateway.
+Advanced starter project for a research brief workflow using Next.js, Postgres, and Aldabra AI Gateway.
 
 ## What you build
 
 A research endpoint that:
 
-- accepts a research question
+- accepts a market or product research question
 - asks a stronger model for structured guidance
 - stores the question and answer in Postgres
 - gives you a base for request history and cost-aware workflows
@@ -31,5 +31,5 @@ http://localhost:3000
 ```bash
 curl -X POST http://localhost:3000/api/research \
   -H "Content-Type: application/json" \
-  -d "{\"question\":\"What are possible thesis topics about AI in local government?\"}"
+  -d "{\"question\":\"What are the adoption risks for AI chat support in local SMEs?\"}"
 ```

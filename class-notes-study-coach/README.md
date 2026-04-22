@@ -1,14 +1,14 @@
-# Class Notes Study Coach
+# Meeting Notes Action Tracker
 
-Intermediate project for turning class notes into summaries, flashcards, and quiz questions.
+Intermediate project for turning meeting notes into summaries, decisions, risks, and action items.
 
 ## What you build
 
 A React app with an Express backend that:
 
-- accepts pasted lecture notes
+- accepts pasted meeting notes
 - calls Aldabra AI Gateway from the backend
-- returns structured study material
+- returns structured operational follow-ups
 - shows how to keep AI keys outside browser code
 
 ## Run locally
@@ -25,6 +25,6 @@ Open:
 http://localhost:5173
 ```
 
-## Notes for students
+## Notes for teams
 
 The backend asks the model to return JSON. In a production app, validate and parse that JSON before saving it.

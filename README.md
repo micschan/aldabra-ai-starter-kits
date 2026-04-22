@@ -5,8 +5,19 @@ Runnable starter projects for students and junior developers using the Aldabra A
 ## Projects
 
 - `barangay-services-chatbot` - beginner HTML + Express chatbot.
-- `class-notes-study-coach` - intermediate React + Express study guide app.
-- `thesis-research-copilot` - advanced Next.js + Postgres research assistant.
+- `customer-support-widget` - beginner support assistant for product FAQs.
+- `resume-cover-letter-coach` - beginner applicant screening assistant.
+- `class-notes-study-coach` - intermediate React + Express meeting notes action tracker.
+- `product-review-sentiment-analyzer` - intermediate review classification app.
+- `thesis-research-copilot` - advanced Next.js + Postgres research brief generator.
+- `multi-model-router-demo` - advanced model-switching demo across low-cost OpenRouter routes.
+
+## Low-cost OpenRouter models used
+
+- `deepseek/deepseek-chat-v3-0324`
+- `qwen/qwen-2.5-72b-instruct`
+- `google/gemini-2.5-flash-lite`
+- `deepseek/deepseek-r1-distill-qwen-32b`
 
 Each project includes:
 
