@@ -26,10 +26,6 @@ Open:
 http://localhost:3000
 ```
 
-## Demo video placeholder
-
-Add your 30-second Loom or YouTube embed here.
-
 ## Test the API route
 
 ```bash

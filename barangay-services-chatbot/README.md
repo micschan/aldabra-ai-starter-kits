@@ -25,10 +25,6 @@ Open:
 http://localhost:3000
 ```
 
-## Demo video placeholder
-
-Add your 30-second Loom or YouTube embed here.
-
 ## Why this is beginner-friendly
 
 - The API key stays in the backend.

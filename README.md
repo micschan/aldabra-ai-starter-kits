@@ -13,7 +13,6 @@ Each project includes:
 - `.env.example`
 - setup commands
 - annotated code
-- a placeholder for a 30-second Loom or YouTube demo
 
 ## Required API key
 

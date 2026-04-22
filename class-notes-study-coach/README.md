@@ -25,10 +25,6 @@ Open:
 http://localhost:5173
 ```
 
-## Demo video placeholder
-
-Add your 30-second Loom or YouTube embed here.
-
 ## Notes for students
 
 The backend asks the model to return JSON. In a production app, validate and parse that JSON before saving it.
